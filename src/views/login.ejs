@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= title %></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <meta http-equiv="Access-Control-Allow-Methods" content="*" /> 
+    <meta http-equiv="Access-Control-Allow-Headers" content="X-Requested-With" />
+    <meta name="author" content="RubenSotelo" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-32x32.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Styles -->
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-9 col-lg-6 col-xl-6 my-lg-5 py-lg-5">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-7 col-lg-6 col-xl-5 p-5">
+                    <p class="lead fw-normal">Sign in</p>
+
+                    <form id="formLogin" role="form" action="/signin" method="post">
+                        <!-- Email input -->
+                        <div class="mb-4">
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Identification Number" value="11001">
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="mb-3">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" value="qwerty">
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#!" class="text-body">Forgot password?</a>
+                        </div>
+
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <button type="submit" id="btnLogin" class="btn btn-primary btn-lg px-5" autofocus>Login</button>
+                        </div>
+                    </form>
+                    <div id="prueba"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+            <!-- Copyright -->
+            <div class="text-white mb-3 mb-md-0">
+            Copyright © 2023. All rights reserved.
+            </div>
+            <!-- Copyright -->
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <!-- Scripts -->
+        <script src="/js/script.js" ></script>
+    </body>
+</html>

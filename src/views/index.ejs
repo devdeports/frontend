@@ -1,0 +1,30 @@
+<%- include('partials/header', {
+    tituloweb: 'Inicio'
+}); %>
+
+<!-- Page content-->
+<div class="container-fluid bg-white">
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="mt-4">Titulo</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <img class="card-img-top imagen-responsive" src="/images/logo.jpg" alt="Logo" style="width: 50%;">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <h1>Bienvenid@ a <%= title %></h1>
+        </div>
+    </div>
+</div>
+
+
+<%- include('partials/footer', { 
+    addScripts: true, 
+    scripts: [ 
+        ]
+    }); 
+%>

@@ -1,0 +1,86 @@
+<%- include('../partials/header', { 
+    tittle: 'Clients',
+    addStyles: true, 
+    styles:
+        [ 'https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.css',
+        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css',
+        'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css' ]
+}); %>
+    <!-- Page content-->
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Details Client</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                    <a href="/clients/list" class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-reply"></i></a>
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa-regular fa-pen-to-square"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <input type="hidden" name="uidl" id="uidl" value="<%= data.client[0].IdUser %>">
+                    <textarea class="form-control" rows="3"><%= JSON.stringify(data.client[0]) %></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-xs-12 mt-3">
+            <div class="card"><!-- border-0 -->
+                <div class="card-body">
+                    <div id="toolbar" class="btn-group" role="group" aria-label="add restaurant">
+                        <button type="button" class="btn btn-sm btn-outline-primary" id="btnAddRestaurant"><i class="fa fa-plus"></i></button>
+                    </div>
+
+                    <table
+                        id="listMyRestaurants"
+                        data-toggle="table"
+                        data-search="true"
+                        data-toolbar="#toolbar"
+                        data-show-columns="true">
+                        <thead>
+                            <tr>
+                                <th data-field="IdRestaurant">IdRestaurant</th>
+                                <th data-field="Name">Name</th>
+                                <th data-field="State">State</th>
+                                <th data-field="City">City</th>
+                                <th data-field="Address">Address</th>
+                                <th data-field="OpenNow" data-align="center">OpenNow</th>
+                                <th data-field="Active" data-align="center">Active</th>
+                                <th data-field="Events" data-align="center">Events</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% data.restaurants.map((rest) => { %>
+                            <tr>
+                                <td><%= rest.IdRestaurant %></td>
+                                <td><%= rest.Name %></td>
+                                <td><%= rest.State %></td>
+                                <td><%= rest.City %></td>
+                                <td><%= rest.Address %></td>
+                                <td><% var state = (rest.OpenNow == true) ? 0 : 1; var openIco = "fa-store"; var openColor = "text-success"; var openData = JSON.stringify({id: rest.IdRestaurant, open: state}); %>
+                                    <% if(rest.OpenNow == false) { openIco = "fa-store-slash"; openColor = "text-danger-cool"; } %>
+                                    <i class="fa-solid <%= openIco %> <%= openColor %> fa-lg open-check" data-open="<%= openData %>" style="cursor:pointer;"></i>
+                                </td>
+                                <td><%- rest.IsActive %></td>
+                                <td><a href="/restaurants/details/<%= rest.code %>" class="btn btn-sm btn-outline-info"><i class="fa-solid fa-shop"></i></a></td>
+                            </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('../partials/footer', { 
+    addScripts: true, 
+    scripts: [
+        'https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.js',
+        'https://unpkg.com/bootstrap-table@1.20.2/dist/locale/bootstrap-table-es-MX.min.js',
+        'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js',
+        '/js/client.js'
+    ]
+}); %>
